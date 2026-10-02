@@ -2,7 +2,7 @@ import { useState } from 'react'
 import {
   ArrowRight, BadgeIndianRupee, Bell, Building2, CalendarCheck, CalendarDays, ChartColumn, Check,
   ClipboardCheck, Clock, Coffee, Database, FileCheck, Globe, LogIn, Mail, Menu, MessageCircle,
-  Palette, ShieldCheck, Smartphone, Timer, TrendingUp, UserCog, Users, X,
+  Palette, ShieldCheck, Smartphone, Sparkles, Timer, TrendingUp, UserCog, Users, X,
 } from 'lucide-react'
 import { CONTACT, DEMO_LOGINS, DEMO_PASSWORD, DEMO_URL, GST_NOTE, PHONE_SHOTS, PLANS, PRICING_FOOTNOTES, SHOTS } from './config'
 import { BrowserShot, Lightbox, PhoneShot } from './components/Screenshot'
@@ -28,14 +28,15 @@ export default function App() {
       <Header open={menuOpen} setOpen={setMenuOpen} />
       <main>
         <Hero />
+        <Showcase />
         <Highlights />
         <Features />
+        <Demo />
         <Gallery />
         <Phones />
         <WhatsApp />
         <WhiteLabel />
         <Pricing onPick={pickPlan} />
-        <Demo />
         <Faq />
         <Contact plan={plan} setPlan={setPlan} />
       </main>
@@ -71,7 +72,8 @@ function Header({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => voi
           {NAV.map(([label, href]) => (
             <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>
           ))}
-          <a className="btn btn-primary btn-sm" href="#demo" onClick={() => setOpen(false)}>Try the demo</a>
+          <a className="btn btn-outline btn-sm" href="#demo" onClick={() => setOpen(false)}>Live demo</a>
+          <a className="btn btn-primary btn-sm" href="#get-started" onClick={() => setOpen(false)}>Get started</a>
         </nav>
         <button className="nav-toggle" onClick={() => setOpen(!open)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -87,27 +89,48 @@ function Hero() {
   return (
     <section className="hero" id="top">
       <div className="wrap hero-grid">
-        <div className="hero-copy">
+        <div className="hero-head">
           <p className="eyebrow">White-label · Made in Kerala for Indian teams</p>
           <h1>Attendance, leave and payroll — <span>under your brand.</span></h1>
+        </div>
+        <div className="hero-copy">
           <p className="lead">
             Check-ins that follow your shifts, Casual / Sick / Earned leave that credits itself every month,
             Loss of Pay worked out on approval, and salaries in rupees. We set it up with your logo,
             on your domain and in your own database.
           </p>
-          <div className="hero-cta">
-            <a className="btn btn-primary" href="#demo"><LogIn size={18} /> Try the live demo</a>
-            <a className="btn btn-ghost" href="#pricing">See pricing <ArrowRight size={18} /></a>
-          </div>
           <ul className="hero-points">
             <li><Check size={16} /> IST shifts, Sundays &amp; Kerala holidays built in</li>
             <li><Check size={16} /> Works on any phone browser — nothing to install</li>
             <li><Check size={16} /> WhatsApp alerts for leave requests</li>
           </ul>
+          <div className="hero-cta">
+            <a className="btn btn-ghost" href="#demo"><LogIn size={18} /> Try the live demo</a>
+            <a className="btn btn-ghost" href="#pricing">See pricing <ArrowRight size={18} /></a>
+          </div>
         </div>
-        <div className="hero-shot">
+        <div className="hero-form" id="get-started">
+          <div className="hero-form-head">
+            <span className="hero-form-badge"><Sparkles size={14} /> Free walkthrough</span>
+            <h2>Get it set up for your team</h2>
+            <p>Leave your details and we’ll show you the app with your own shifts and leave policy — then send a quote.</p>
+          </div>
+          <ContactForm variant="hero" />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ── Showcase (big screenshot under the hero) ────────────────
+
+function Showcase() {
+  return (
+    <section className="showcase" aria-label="App preview">
+      <div className="wrap">
+        <div className="showcase-shot">
           <BrowserShot shot={SHOTS.attendance} eager />
-          <div className="hero-phone"><PhoneShot shot={PHONE_SHOTS[0]} /></div>
+          <div className="showcase-phone"><PhoneShot shot={PHONE_SHOTS[0]} /></div>
         </div>
       </div>
     </section>
@@ -422,30 +445,44 @@ function Pricing({ onPick }: { onPick: (name: string) => void }) {
 // ── Demo ────────────────────────────────────────────────────
 
 function Demo() {
+  const external = DEMO_URL.startsWith('http')
   return (
-    <section className="section" id="demo">
-      <div className="wrap demo-box">
-        <div>
-          <p className="eyebrow"><LogIn size={14} /> Live demo</p>
-          <h2>Click around a real company</h2>
-          <p className="section-sub">
-            Sproutbien Technologies, Trivandrum — 13 people, five months of attendance, leave, corrections and payroll.
-            During the day the team checks in and out on its own. Change anything you like: the demo resets every night.
+    <section className="demo-band" id="demo">
+      <div className="demo-glow" aria-hidden="true" />
+      <div className="wrap demo-grid">
+        <div className="demo-copy">
+          <span className="live-badge"><span className="live-dot" aria-hidden="true" /> Live demo · no sign-up</span>
+          <h2>Don’t take our word for it. <span>Click around a real company.</span></h2>
+          <p>
+            Sproutbien Technologies, Trivandrum — a full company running on the app. During the day its team checks in,
+            takes breaks and checks out on its own. Approve leave, run payroll, change anything: it all resets every night.
+          </p>
+          <ul className="demo-facts">
+            <li><strong>13</strong><span>employees</span></li>
+            <li><strong>5</strong><span>months of data</span></li>
+            <li><strong>1 click</strong><span>to log in</span></li>
+          </ul>
+          <div className="demo-buttons">
+            {DEMO_LOGINS.map(d => (
+              <a className={`demo-btn ${d.role === 'admin' ? 'demo-btn--primary' : ''}`} key={d.role}
+                href={demoLink(d.role)} target={external ? '_blank' : undefined} rel="noreferrer">
+                <span className="demo-btn-icon">{d.role === 'admin' ? <UserCog size={22} /> : <Coffee size={22} />}</span>
+                <span className="demo-btn-text">
+                  <strong>Try as {d.label}</strong>
+                  <span>{d.who}</span>
+                </span>
+                <ArrowRight size={22} className="demo-btn-arrow" />
+              </a>
+            ))}
+          </div>
+          <p className="demo-pass">
+            Opens logged in automatically. Prefer to type it? <code>{DEMO_LOGINS[0].email}</code> or{' '}
+            <code>{DEMO_LOGINS[1].email}</code>, password <code>{DEMO_PASSWORD}</code>
           </p>
         </div>
-        <div className="demo-logins">
-          {DEMO_LOGINS.map(d => (
-            <a className="demo-login" key={d.role} href={demoLink(d.role)} target={DEMO_URL.startsWith('http') ? '_blank' : undefined} rel="noreferrer">
-              <span className="icon-well">{d.role === 'admin' ? <UserCog size={20} /> : <Coffee size={20} />}</span>
-              <span className="demo-login-text">
-                <strong>Try as {d.label}</strong>
-                <span>{d.who}</span>
-                <code>{d.email}</code>
-              </span>
-              <ArrowRight size={20} />
-            </a>
-          ))}
-          <p className="demo-pass">Password for both: <code>{DEMO_PASSWORD}</code> — the buttons log you in automatically.</p>
+        <div className="demo-peek" aria-hidden="true">
+          <img src={`/screens/${SHOTS.teamStats.file}`} alt="" loading="lazy" />
+          <img src={`/screens/${PHONE_SHOTS[1].file}`} alt="" loading="lazy" className="demo-peek-phone" />
         </div>
       </div>
     </section>
@@ -519,7 +556,7 @@ function Contact({ plan, setPlan }: { plan: string; setPlan: (p: string) => void
           </ul>
         </div>
         <div className="form-card">
-          <ContactForm plan={plan} onPlanChange={setPlan} />
+          <ContactForm variant="full" plan={plan} onPlanChange={setPlan} />
         </div>
       </div>
     </section>
