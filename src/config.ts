@@ -105,5 +105,5 @@ export const PHONE_SHOTS: Shot[] = [
   { file: 'phone-dashboard.png',  title: 'Check in',   caption: 'One tap from the phone.' },
   { file: 'phone-leave.png',      title: 'Leave',      caption: 'Apply with a voice note.' },
   { file: 'phone-stats.png',      title: 'Statistics', caption: 'Their month, clearly.' },
-  { file: 'phone-admin.png',      title: 'Admin',      caption: 'Approve on the go.' },
+  { file: 'phone-admin.png',      title: 'Admin',      caption: 'Who’s in, at a glance.' },
 ]

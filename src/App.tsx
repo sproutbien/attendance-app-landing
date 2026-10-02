@@ -5,8 +5,10 @@ import {
   Palette, ShieldCheck, Smartphone, Timer, TrendingUp, UserCog, Users, X,
 } from 'lucide-react'
 import { CONTACT, DEMO_LOGINS, DEMO_PASSWORD, DEMO_URL, GST_NOTE, PHONE_SHOTS, PLANS, PRICING_FOOTNOTES, SHOTS } from './config'
-import { BrowserShot, PhoneShot } from './components/Screenshot'
+import { BrowserShot, Lightbox, PhoneShot } from './components/Screenshot'
 import ContactForm from './components/ContactForm'
+
+const ALL_SHOTS = [...Object.values(SHOTS), ...PHONE_SHOTS]
 
 const WA_LINK = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(CONTACT.whatsappText)}`
 
@@ -38,6 +40,7 @@ export default function App() {
         <Contact plan={plan} setPlan={setPlan} />
       </main>
       <Footer />
+      <Lightbox shots={ALL_SHOTS} />
       <a className="wa-float" href={WA_LINK} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
         <MessageCircle size={26} />
       </a>
