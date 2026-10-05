@@ -633,7 +633,7 @@ const FAQS = [
   ['How long does set-up take?',
    'Usually about a week from our first call, depending on how quickly your web address and WhatsApp Business number are ready.'],
   ['What does the monthly fee cover?',
-   'Hosting, daily backups, updates and new features, bug fixes and support. There are no separate hosting bills.'],
+   'Hosting, weekly backups, updates and new features, bug fixes and support. There are no separate hosting bills.'],
   ['Can we change the logo or colours later?',
    'Yes. Ask us any time, or we can let your admins change the logo and colours themselves from a Branding page.'],
   ['Can you add features we need?',

@@ -102,7 +102,7 @@ export const PLANS: Plan[] = [
 ]
 
 export const PRICING_FOOTNOTES = [
-  'Hosting, daily backups and updates are included in the monthly fee.',
+  'Hosting, weekly backups and updates are included in the monthly fee.',
   'Pay yearly and get 2 months of the monthly fee free.',
   'WhatsApp alerts are optional. If you use them, Meta’s message charges are billed by Meta to your WhatsApp Business account.',
 ]
