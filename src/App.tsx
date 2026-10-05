@@ -7,6 +7,7 @@ import {
 import { CONTACT, DEMO_LOGINS, DEMO_PASSWORD, DEMO_URL, GST_NOTE, PHONE_SHOTS, PLANS, PRICING_FOOTNOTES, SHOTS } from './config'
 import { BrowserShot, Lightbox, PhoneShot } from './components/Screenshot'
 import ContactForm from './components/ContactForm'
+import { LegalFooter } from './components/LegalPages'
 
 const ALL_SHOTS = [...Object.values(SHOTS), ...PHONE_SHOTS]
 
@@ -564,15 +565,5 @@ function Contact({ plan, setPlan }: { plan: string; setPlan: (p: string) => void
 }
 
 function Footer() {
-  return (
-    <footer className="site-footer">
-      <div className="wrap footer-row">
-        <div className="brand brand--footer">
-          <img src="/logo.jpg" alt="" />
-          <span className="brand-name">Sprout<b>Bien</b></span>
-        </div>
-        <p>© {new Date().getFullYear()} Sproutbien Technologies, Trivandrum, Kerala · <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
-      </div>
-    </footer>
-  )
+  return <LegalFooter />
 }

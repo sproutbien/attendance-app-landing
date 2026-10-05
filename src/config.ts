@@ -7,6 +7,28 @@ export const CONTACT = {
   whatsappText: 'Hi! I saw the Sproutbien Attendance Tracker and would like to know more.',
 }
 
+// Business details for the Terms, Privacy, Refund and Contact pages (/terms, /privacy,
+// /refund-policy, /contact). Use exactly what's on your PAN / GST / bank account —
+// the payment gateway checks that they match. Anything starting with "TODO" is
+// shown highlighted on the page until it's filled in.
+export const LEGAL = {
+  legalName: 'TODO: legal business name (as on PAN / GST)',
+  tradeName: 'Sproutbien',                        // the brand people know
+  businessType: 'TODO: e.g. sole proprietorship',
+  address: 'TODO: registered address, with PIN code',
+  city: 'Thiruvananthapuram, Kerala',             // also the place for any legal disputes
+  gstin: '',                                      // leave empty if not GST-registered
+  email: CONTACT.email,
+  phone: CONTACT.whatsappDisplay,
+  hours: 'Monday to Saturday, 9:30 AM – 6:00 PM IST (except public holidays)',
+  grievanceOfficer: 'TODO: name of the person who handles privacy complaints',
+  lastUpdated: '5 October 2026',
+  // Refund rules (shown on /refund-policy)
+  setupRefundDays: 7,                             // full set-up refund if cancelled within this many days of paying AND before set-up starts
+  refundProcessingDays: '5–7 working days',
+  setupDeliveryDays: '7 working days',            // from the kick-off call
+}
+
 export const DEMO_URL = (import.meta.env.VITE_DEMO_URL as string | undefined) || '#demo'
 
 export const DEMO_LOGINS = [
