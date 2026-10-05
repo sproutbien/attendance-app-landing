@@ -1,6 +1,1 @@
-{
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/(terms|privacy|refund-policy|contact)", "destination": "/index.html" }
-  ]
-}
+{ "cleanUrls": true }
