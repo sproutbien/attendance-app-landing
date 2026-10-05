@@ -59,12 +59,13 @@ export const PLANS: Plan[] = [
     monthly: '₹1,499',
     employees: 'Up to 25 employees',
     features: [
+      'Every feature: attendance, leave, payroll, hiring and onboarding',
+      'Selfie and location check at check-in',
       'Your logo, colours and app name',
-      'Your own domain (e.g. attendance.yourcompany.in)',
-      'Your own private database, set up and secured by us',
-      'WhatsApp leave alerts set up on your number',
-      'Leave policy, shifts and holidays configured for you',
-      'Updates, backups and email support',
+      'Your own web address (e.g. attendance.yourcompany.in)',
+      'Private database, hosted and backed up by us',
+      'Shifts, leave policy and holidays set up for you',
+      'Updates and email support',
     ],
     cta: 'Get Starter',
   },
@@ -101,31 +102,42 @@ export const PLANS: Plan[] = [
 ]
 
 export const PRICING_FOOTNOTES = [
+  'Hosting, daily backups and updates are included in the monthly fee.',
   'Pay yearly and get 2 months of the monthly fee free.',
-  'Hosting usually runs on free or low-cost plans of Supabase and Vercel. Any charges from them, or Meta’s WhatsApp message fees, are billed to you directly.',
+  'WhatsApp alerts are optional. If you use them, Meta’s message charges are billed by Meta to your WhatsApp Business account.',
 ]
 
 // Screenshots live in public/screens/. A missing file shows a neat placeholder.
 export type Shot = { file: string; title: string; caption: string }
 
 export const SHOTS = {
-  login:        { file: 'login.png',            title: 'Login',               caption: 'Branded sign-in with password reset by email.' },
-  dashboard:    { file: 'dashboard.png',        title: 'Employee dashboard',  caption: 'Check in, pause for a break, check out — today’s time and this month at a glance.' },
-  leave:        { file: 'leave.png',            title: 'Request leave',       caption: 'Live balances, half days, voice notes and sick-leave documents.' },
-  stats:        { file: 'stats.png',            title: 'My Statistics',       caption: 'Punctuality, hours vs shift, leave and a 6-month trend — downloadable as PDF.' },
-  attendance:   { file: 'admin-attendance.png', title: 'Daily attendance',    caption: 'Who’s in, late, on a break or on leave — right now.' },
-  teamStats:    { file: 'team-stats.png',       title: 'Team Stats',          caption: 'Compare people and departments; “Worth a look” flags odd patterns.' },
-  profile:      { file: 'employee-profile.png', title: 'Employee profile',    caption: 'Employee ID, status, manager, shift, emergency contact and HR notes.' },
-  employees:    { file: 'employees.png',        title: 'Employees',           caption: 'Filters by department, status and location; deleted staff go to a bin.' },
-  shifts:       { file: 'shifts.png',           title: 'Shifts',              caption: 'Each shift sets its own late, half-day and minimum-break rules.' },
-  approvals:    { file: 'leave-approvals.png',  title: 'Leave approvals',     caption: 'Approve in one click — paid days and Loss of Pay are worked out for you.' },
-  corrections:  { file: 'corrections.png',      title: 'Corrections',         caption: 'Employees ask to fix a time; admins approve, adjust or reject.' },
-  payroll:      { file: 'payroll.png',          title: 'Payroll',             caption: 'Paid days → salary in INR, from attendance and paid leave.' },
-  calendar:     { file: 'calendar.png',         title: 'Holidays & calendar', caption: 'Company holidays and everyone’s month on one calendar.' },
+  login:           { file: 'login.png',             title: 'Login',               caption: 'Branded sign-in; employees choose their own password at first login.' },
+  dashboard:       { file: 'dashboard.png',         title: 'Employee dashboard',  caption: 'Check in, pause for a break, check out — today’s time and this month at a glance.' },
+  selfie:          { file: 'checkin-selfie.png',    title: 'Selfie check-in',     caption: 'The camera opens at check-in; no gallery uploads.' },
+  selfieReview:    { file: 'selfie-review.png',     title: 'Selfie review',       caption: 'The check-in selfie next to the profile photo, one click from the attendance list.' },
+  security:        { file: 'checkin-security.png',  title: 'Check-in rules',      caption: 'Switch selfie and location checks on for everyone or per person; set an area for each office.' },
+  attendance:      { file: 'admin-attendance.png',  title: 'Daily attendance',    caption: 'Who’s in, late or on leave — with each check-in’s selfie and location.' },
+  leave:           { file: 'leave.png',             title: 'Request leave',       caption: 'Live balances, half days, voice notes and sick-leave documents.' },
+  stats:           { file: 'stats.png',             title: 'My Statistics',       caption: 'Punctuality, hours vs shift, leave and a 6-month trend — downloadable as PDF.' },
+  teamStats:       { file: 'team-stats.png',        title: 'Team Stats',          caption: 'Compare people and departments; “Worth a look” flags odd patterns.' },
+  profile:         { file: 'employee-profile.png',  title: 'Onboarding',          caption: 'A checklist for every new joiner, with their documents in one place.' },
+  hiring:          { file: 'hiring.png',            title: 'Hiring',              caption: 'Candidates from applied to offer; one click turns a hire into an employee.' },
+  policy:          { file: 'leave-policy.png',      title: 'Leave policy',        caption: 'Built from your real settings; employees confirm they’ve read each update.' },
+  employees:       { file: 'employees.png',         title: 'Employees',           caption: 'Filters by department, status and location; deleted staff go to a bin.' },
+  shifts:          { file: 'shifts.png',            title: 'Shifts',              caption: 'Each shift sets its own late, half-day and minimum-break rules.' },
+  approvals:       { file: 'leave-approvals.png',   title: 'Leave approvals',     caption: 'Approve in one click — paid days and Loss of Pay are worked out for you.' },
+  corrections:     { file: 'corrections.png',       title: 'Corrections',         caption: 'Employees ask to fix a time; admins approve, adjust or reject.' },
+  payroll:         { file: 'payroll.png',           title: 'Payroll',             caption: 'Paid days → salary in INR, from attendance and paid leave.' },
+  calendar:        { file: 'calendar.png',          title: 'Holidays & calendar', caption: 'Company holidays, optional holidays and everyone’s month on one calendar.' },
+  branding:        { file: 'branding.png',          title: 'Branding',            caption: 'Name, logo and colour with a live preview of every screen.' },
+  rebrandLogin:    { file: 'rebrand-login.png',     title: 'Your login page',     caption: 'The same app as “Acme Infotech”: their logo, name and colour.' },
+  rebrandDashboard:{ file: 'rebrand-dashboard.png', title: 'Your employee app',   caption: 'Every screen follows the brand colour, in light and dark mode.' },
+  rebrandAdmin:    { file: 'rebrand-admin.png',     title: 'Your admin panel',    caption: 'The admin side is branded too.' },
 } satisfies Record<string, Shot>
 
 export const PHONE_SHOTS: Shot[] = [
   { file: 'phone-dashboard.png',  title: 'Check in',   caption: 'One tap from the phone.' },
+  { file: 'phone-selfie.png',     title: 'Selfie',     caption: 'Proof it’s really them.' },
   { file: 'phone-leave.png',      title: 'Leave',      caption: 'Apply with a voice note.' },
   { file: 'phone-stats.png',      title: 'Statistics', caption: 'Their month, clearly.' },
   { file: 'phone-admin.png',      title: 'Admin',      caption: 'Who’s in, at a glance.' },
