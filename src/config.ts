@@ -12,16 +12,17 @@ export const CONTACT = {
 // the payment gateway checks that they match. Anything starting with "TODO" is
 // shown highlighted on the page until it's filled in.
 export const LEGAL = {
-  legalName: 'TODO: legal business name (as on PAN / GST)',
+  legalName: 'Sproutbien LLP',
   tradeName: 'Sproutbien',                        // the brand people know
-  businessType: 'TODO: e.g. sole proprietorship',
-  address: 'TODO: registered address, with PIN code',
+  businessType: 'limited liability partnership',
+  address: 'TC 4, 2111, Pattom - Kowdiar Rd, opp. IOB Bank, Pattom, Thiruvananthapuram, Keralam 695004',
   city: 'Thiruvananthapuram, Kerala',             // also the place for any legal disputes
-  gstin: '',                                      // leave empty if not GST-registered
+  gstin: '32ADWFS5825Q1Z3',                       // leave empty if not GST-registered
   email: CONTACT.email,
   phone: CONTACT.whatsappDisplay,
   hours: 'Monday to Saturday, 9:30 AM – 6:00 PM IST (except public holidays)',
-  grievanceOfficer: 'TODO: name of the person who handles privacy complaints',
+  grievanceOfficer: 'Arun Sivaraj',
+  grievancePhone: '+91 98956 57728',
   lastUpdated: '5 October 2026',
   // Refund rules (shown on /refund-policy)
   setupRefundDays: 7,                             // full set-up refund if cancelled within this many days of paying AND before set-up starts

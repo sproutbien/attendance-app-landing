@@ -60,7 +60,7 @@ export function LegalFooter() {
         <nav className="footer-links" aria-label="Policies">
           {(Object.keys(LEGAL_PAGES) as LegalPath[]).map(p => <a key={p} href={p}>{LEGAL_PAGES[p]}</a>)}
         </nav>
-        <p>© {new Date().getFullYear()} {LEGAL.legalName.startsWith('TODO') ? 'Sproutbien' : LEGAL.legalName} · {LEGAL.city} · <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
+        <p>© {new Date().getFullYear()} {LEGAL.legalName} · {LEGAL.city}{LEGAL.gstin && <> · GSTIN {LEGAL.gstin}</>} · <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
       </div>
     </footer>
   )
@@ -221,8 +221,8 @@ function Privacy() {
       <h2>6. Your rights</h2>
       <p>
         You can ask us for a copy of your personal data, to correct it, or to delete it, and you can withdraw
-        consent you gave us. Write to our grievance officer, <V>{LEGAL.grievanceOfficer}</V>,
-        at <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>. We reply within 30 days.
+        consent you gave us. Contact our grievance officer, <V>{LEGAL.grievanceOfficer}</V>,
+        at <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a> or {LEGAL.grievancePhone}. We reply within 30 days.
       </p>
 
       <h2>7. Changes</h2>
@@ -299,13 +299,13 @@ function Contact() {
     <>
       <p>We’re happy to help with questions about the app, a demo, a quote, billing or your data.</p>
       <div className="legal-contact">
-        <div><MapPin size={20} /><span><b><V>{LEGAL.legalName}</V></b><br /><V>{LEGAL.address}</V><br />{LEGAL.city}, India{LEGAL.gstin && <><br />GSTIN: {LEGAL.gstin}</>}</span></div>
+        <div><MapPin size={20} /><span><b><V>{LEGAL.legalName}</V></b><br /><V>{LEGAL.address}</V>, India{LEGAL.gstin && <><br />GSTIN: {LEGAL.gstin}</>}</span></div>
         <div><Mail size={20} /><span><b>Email</b><br /><a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a></span></div>
         <div><Phone size={20} /><span><b>Phone</b><br /><a href={`tel:+${CONTACT.whatsapp}`}>{LEGAL.phone}</a></span></div>
         <div><MessageCircle size={20} /><span><b>WhatsApp</b><br /><a href={WA_LINK} target="_blank" rel="noreferrer">{CONTACT.whatsappDisplay}</a></span></div>
         <div><Clock size={20} /><span><b>Hours</b><br />{LEGAL.hours}</span></div>
       </div>
-      <p>We usually reply within one working day. For privacy requests, write to our grievance officer, <V>{LEGAL.grievanceOfficer}</V>, at the email above.</p>
+      <p>We usually reply within one working day. For privacy requests, contact our grievance officer, <V>{LEGAL.grievanceOfficer}</V>, at the email above or {LEGAL.grievancePhone}.</p>
       <p><a className="btn btn-primary" href="/#contact">Send us a message</a></p>
     </>
   )
