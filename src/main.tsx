@@ -10,7 +10,7 @@ import './redesign.css'
 // /terms, /privacy, /refund-policy and /contact are separate pages; everything else is the landing page
 const path = window.location.pathname.replace(/\/+$/, '') as LegalPath
 const legal = path in LEGAL_PAGES
-if (legal) document.title = `${LEGAL_PAGES[path]} · Sproutbien Attendance Tracker`
+if (legal) document.title = `${LEGAL_PAGES[path]} · Sproutbien People Desk`
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

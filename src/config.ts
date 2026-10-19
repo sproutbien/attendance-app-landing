@@ -4,7 +4,7 @@ export const CONTACT = {
   email: 'sales@sproutbien.com',
   whatsapp: '919895657728',                 // digits only, with country code
   whatsappDisplay: '+91 98956 57728',
-  whatsappText: 'Hi! I saw the Sproutbien Attendance Tracker and would like to know more.',
+  whatsappText: 'Hi! I saw the Sproutbien People Desk and would like to know more.',
 }
 
 // Business details for the Terms, Privacy, Refund and Contact pages (/terms, /privacy,

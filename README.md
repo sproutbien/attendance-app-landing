@@ -1,6 +1,6 @@
-# Sproutbien Attendance Tracker — landing page
+# Sproutbien People Desk — landing page
 
-Sales page for the white-label attendance app. Vite + React + TypeScript.
+Sales page for People Desk, the white-label attendance, leave, payroll and HR app. Vite + React + TypeScript.
 
 ## Run locally
 

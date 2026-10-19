@@ -76,7 +76,7 @@ function Header({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => voi
         <a className="brand" href="#top" onClick={() => setOpen(false)}>
           <img src="/logo.jpg" alt="" />
           <span className="brand-name">Sprout<b>Bien</b></span>
-          <span className="brand-sub">Attendance Tracker</span>
+          <span className="brand-sub">People Desk</span>
         </a>
         <nav className={`nav ${open ? 'nav--open' : ''}`} aria-label="Main">
           {NAV.map(([label, href]) => (
@@ -680,7 +680,7 @@ function Contact({ plan, setPlan }: { plan: string; setPlan: (p: string) => void
               <span className="icon-well icon-well--wa"><MessageCircle size={20} /></span>
               <span><strong>WhatsApp</strong><span>{CONTACT.whatsappDisplay}</span></span>
             </a>
-            <a className="contact-way" href={`mailto:${CONTACT.email}?subject=${encodeURIComponent('Sproutbien Attendance Tracker')}`}>
+            <a className="contact-way" href={`mailto:${CONTACT.email}?subject=${encodeURIComponent('Sproutbien People Desk')}`}>
               <span className="icon-well"><Mail size={20} /></span>
               <span><strong>Email</strong><span>{CONTACT.email}</span></span>
             </a>

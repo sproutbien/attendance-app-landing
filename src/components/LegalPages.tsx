@@ -29,7 +29,7 @@ export default function LegalPage({ path }: { path: LegalPath }) {
           <a className="brand" href="/">
             <img src="/logo.jpg" alt="" />
             <span className="brand-name">Sprout<b>Bien</b></span>
-            <span className="brand-sub">Attendance Tracker</span>
+            <span className="brand-sub">People Desk</span>
           </a>
           <a className="btn btn-ghost btn-sm legal-back" href="/"><ArrowLeft size={16} /> Back to the website</a>
         </div>
@@ -78,7 +78,7 @@ function Terms() {
 
       <h2>1. What we provide</h2>
       <p>
-        The Sproutbien Attendance Tracker: a web app for attendance, leave, shifts, employee records and payroll
+        The Sproutbien People Desk: a web app for attendance, leave, shifts, employee records and payroll
         figures. We set up your own copy of the app with your branding and run it for you as an online service
         (“the service”). The features in each plan are listed on our <a href="/#pricing">pricing section</a>.
       </p>
@@ -171,7 +171,7 @@ function Privacy() {
     <>
       <p>
         This policy explains what personal data <Business /> collects, why, and what we do with it. It covers this
-        website and the attendance app we run for our customers.
+        website and the People Desk app we run for our customers.
       </p>
 
       <h2>1. On this website</h2>
@@ -182,7 +182,7 @@ function Privacy() {
         <li>The live demo contains only made-up sample data.</li>
       </ul>
 
-      <h2>2. In the attendance app</h2>
+      <h2>2. In the People Desk app</h2>
       <p>
         When a company uses our app, it decides what is recorded about its employees and why. Under India’s
         Digital Personal Data Protection Act, 2023, that company is the <b>data fiduciary</b>, and we process the
@@ -238,7 +238,7 @@ function Refund() {
   return (
     <>
       <p>
-        This policy applies to all payments made to <Business /> for the Sproutbien Attendance Tracker
+        This policy applies to all payments made to <Business /> for the Sproutbien People Desk
         ({paidPlans.map(p => p.name).join(', ')} and custom plans).
       </p>
 
