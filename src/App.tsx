@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import {
-  ArrowRight, BadgeIndianRupee, Bell, Briefcase, Building2, Camera, CalendarCheck, CalendarDays, ChartColumn, Check,
-  ClipboardCheck, Clock, Coffee, Database, FileCheck, Globe, KeyRound, LogIn, Mail, MapPin, Menu, MessageCircle,
-  Palette, ScrollText, ShieldCheck, Smartphone, Sparkles, Timer, TrendingUp, UserCheck, UserCog, UserPlus, Users, X,
+  ArrowRight, BadgeIndianRupee, Bell, Briefcase, Building2, Cake, Camera, CalendarCheck, CalendarDays, ChartColumn, Check,
+  ClipboardCheck, Clock, Coffee, Database, FileCheck, FileSignature, Gauge, Globe, KeyRound, LogIn, Mail, MapPin, Menu,
+  MessageCircle, Palette, Repeat, ScrollText, ShieldCheck, Smartphone, Sparkles, Timer, TrendingUp, UserCheck, UserCog,
+  UserPlus, Users, X,
 } from 'lucide-react'
 import { CONTACT, DEMO_LOGINS, DEMO_PASSWORD, DEMO_URL, GST_NOTE, PHONE_SHOTS, PLANS, PRICING_FOOTNOTES, SHOTS } from './config'
 import type { Shot } from './config'
@@ -32,6 +33,7 @@ export default function App() {
       <Header open={menuOpen} setOpen={setMenuOpen} />
       <main>
         <Hero />
+        <Showcase />
         <ProofStrip />
         <WhySwitch />
         <Highlights />
@@ -82,7 +84,7 @@ function Header({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => voi
           {NAV.map(([label, href]) => (
             <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>
           ))}
-          <a className="btn btn-outline btn-sm" href="#contact" onClick={() => setOpen(false)}>Book a walkthrough</a>
+          <a className="btn btn-outline btn-sm" href="#top" onClick={() => setOpen(false)}>Book a walkthrough</a>
           <a className="btn btn-primary btn-sm" href={demoLink('admin')} {...demoTarget} onClick={() => setOpen(false)}>Try live demo</a>
         </nav>
         <button className="nav-toggle" onClick={() => setOpen(!open)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
@@ -97,35 +99,53 @@ function Header({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => voi
 
 function Hero() {
   return (
-    <section className="hero hero--v2" id="top">
-      <div className="wrap hero-v2-grid">
-        <div className="hero-v2-copy">
+    <section className="hero" id="top">
+      <div className="wrap hero-grid">
+        <div className="hero-head">
           <p className="eyebrow">White-label HR app · Made in Kerala for Indian teams</p>
           <h1>Attendance, leave and payroll — <span>under your brand.</span></h1>
+        </div>
+        <div className="hero-copy">
           <p className="lead">
-            Selfie and location-checked check-ins, Indian leave rules that run themselves, and salaries in rupees.
-            Your logo, your web address, your own private database. We set it all up for you.
+            One-tap check-ins with selfie and location checks, Indian leave rules that run themselves, and salaries
+            in rupees — plus hiring, offer letters and onboarding. Your logo, your web address, your own private database.
           </p>
           <ul className="hero-points">
             <li><Check size={16} /> Stops proxy attendance with a selfie and an office-area check</li>
             <li><Check size={16} /> Casual, Sick, Earned and Loss of Pay worked out automatically</li>
-            <li><Check size={16} /> Hiring, onboarding and payroll in the same app</li>
+            <li><Check size={16} /> A productivity score and calendar log every employee understands</li>
+            <li><Check size={16} /> Live in about a week — we set everything up for you</li>
           </ul>
           <div className="hero-cta">
-            <a className="btn btn-primary btn-lg" href={demoLink('admin')} {...demoTarget}>
+            <a className="btn btn-outline btn-lg" href={demoLink('admin')} {...demoTarget}>
               <LogIn size={18} /> Try the live demo
             </a>
-            <a className="btn btn-outline btn-lg" href={demoLink('employee')} {...demoTarget}>
-              See the employee app
+            <a className="btn btn-ghost btn-lg" href={demoLink('employee')} {...demoTarget}>
+              See the employee app <ArrowRight size={16} />
             </a>
           </div>
-          <p className="hero-v2-note">
-            No sign-up — opens a real demo company. Prefer a guided tour? <a href="#contact">Book a free walkthrough <ArrowRight size={14} /></a>
-          </p>
+          <p className="hero-v2-note">No sign-up — the demo opens a real sample company.</p>
         </div>
-        <div className="hero-v2-visual">
-          <BrowserShot shot={SHOTS.attendance} eager />
-          <div className="hero-v2-phone"><PhoneShot shot={PHONE('phone-selfie.png')} /></div>
+        <div className="hero-form" id="get-started">
+          <div className="hero-form-head">
+            <span className="hero-form-badge"><Sparkles size={14} /> Free walkthrough + quote</span>
+            <h2>See it with your own shifts and leave policy</h2>
+            <p>Leave your details and we’ll call you within one working day to set up a 30-minute walkthrough.</p>
+          </div>
+          <ContactForm variant="hero" />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Showcase() {
+  return (
+    <section className="showcase" aria-label="The employee dashboard">
+      <div className="wrap">
+        <div className="showcase-shot">
+          <BrowserShot shot={SHOTS.dashboard} eager />
+          <div className="showcase-phone"><PhoneShot shot={PHONE('phone-dashboard.png')} /></div>
         </div>
       </div>
     </section>
@@ -184,21 +204,25 @@ function WhySwitch() {
 // ── Everything at a glance ──────────────────────────────────
 
 const HIGHLIGHTS = [
-  { icon: Clock,          title: 'Check in & breaks',     text: 'One-tap check-in, pause and resume breaks, confirm on check-out.' },
+  { icon: Clock,          title: 'Smart check-in',        text: 'One big button that shows on time, late or half day by your shift rules.' },
+  { icon: Gauge,          title: 'Productivity score',    text: 'Attendance, punctuality and hours vs shift rolled into one score.' },
   { icon: Camera,         title: 'Selfie check-in',       text: 'A live photo at check-in, shown next to the profile photo.' },
   { icon: MapPin,         title: 'Location check',        text: 'Check-ins compared with each office’s area; remote staff skipped.' },
   { icon: Timer,          title: 'Shift rules',           text: 'Late, half-day and minimum-break rules set per shift.' },
+  { icon: Repeat,         title: 'Shift swaps & permissions', text: 'One-day shift changes and short permissions, with monthly limits.' },
   { icon: CalendarCheck,  title: 'Leave & balances',      text: 'Monthly accrual, Apr–Mar year, carry-forward, monthly limits.' },
-  { icon: BadgeIndianRupee, title: 'Payroll in INR',      text: 'Paid days → salary, with paid leave and Loss of Pay.' },
-  { icon: ClipboardCheck, title: 'Corrections',           text: 'Forgot to check out? Ask, and an admin approves.' },
-  { icon: ChartColumn,    title: 'Statistics',            text: 'Personal and team stats, 6-month trends, PDF reports.' },
+  { icon: BadgeIndianRupee, title: 'Payroll in INR',      text: 'Paid days → salary; unplanned absences count as Loss of Pay.' },
+  { icon: ClipboardCheck, title: 'Corrections',           text: 'Forgot to check out? Ask from the calendar log; an admin approves.' },
+  { icon: ChartColumn,    title: 'Statistics',            text: 'Personal and team stats, heatmaps, 6-month trends, PDF reports.' },
   { icon: UserPlus,       title: 'Hiring',                text: 'Candidates from applied to offer, then one-click hire.' },
-  { icon: Briefcase,      title: 'Onboarding',            text: 'Checklists, document uploads and probation reminders.' },
+  { icon: FileSignature,  title: 'Offer letters',         text: 'PDF offer letters emailed from the app; candidates accept online.' },
+  { icon: Briefcase,      title: 'Onboarding',            text: 'Checklists, document uploads, HR verification and probation.' },
   { icon: ScrollText,     title: 'Leave policy',          text: 'Always up to date; employees confirm they’ve read it.' },
+  { icon: Cake,           title: 'Birthdays & anniversaries', text: 'The admin home shows who’s celebrating in the next 30 days.' },
   { icon: Users,          title: 'Employee records',      text: 'IDs, statuses, notice periods, managers, HR notes.' },
   { icon: KeyRound,       title: 'Secure logins',         text: 'Own password at first login; admins can reset any time.' },
   { icon: Bell,           title: 'WhatsApp alerts',       text: 'Admins hear about leave the moment it’s requested.' },
-  { icon: CalendarDays,   title: 'Holidays',              text: 'Public and optional holidays (pick 1 of 2) per year.' },
+  { icon: CalendarDays,   title: 'Holidays',              text: 'Holiday list, optional holidays (pick 1 of 2) and “Add to my calendar”.' },
   { icon: Palette,        title: 'White-label',           text: 'Your brand on every screen, PDF and the browser tab.' },
 ]
 
@@ -274,7 +298,7 @@ function Security() {
           />
           <FeatureRow
             flip
-            shot={SHOTS.attendance}
+            shot={SHOTS.location}
             eyebrow={<><MapPin size={14} /> Location check</>}
             title="Know they checked in from the office"
             points={[
@@ -304,7 +328,7 @@ function Demo() {
           <h2>Don’t take our word for it. <span>Click around a real company.</span></h2>
           <p>
             Sproutbien Technologies, Trivandrum — 13 people running on the app. During the day they check in, take
-            breaks and check out on their own. Approve leave, run payroll, try the selfie check-in: it all resets every night.
+            breaks and check out on their own. Approve leave, run payroll, send an offer letter, try the selfie check-in: it all resets every night.
           </p>
           <ul className="demo-facts">
             <li><strong>13</strong><span>employees</span></li>
@@ -346,10 +370,21 @@ const FEATURES = [
     eyebrow: 'For employees',
     title: 'A check-in screen people actually like using',
     points: [
-      'Check in, take a break, check out — the timer pauses during breaks',
-      'Late after your grace time, automatic half day after a cut-off — set per shift',
-      'A minimum break is counted on full days, so skipping the pause button gains nothing',
-      'Their own month: hours, late days, leave and a log they can ask to correct',
+      'One full-width Check In bar — its colour follows the shift rules: on time, late or half day',
+      'Today’s shift, the last 6 days and this month at a glance, with an on-time streak',
+      'A productivity score out of 100 from attendance, punctuality and hours vs shift',
+      'The month as a calendar: tap any day for times and breaks, or to ask for a correction',
+    ],
+  },
+  {
+    shot: SHOTS.attendance,
+    eyebrow: 'For admins',
+    title: 'Your whole team on one home screen',
+    points: [
+      'Present, late, absent and on leave — with names — the moment you log in',
+      '“Right now”: who’s working, on a break or checked out, and the average check-in',
+      'A 7-day trend, gentle “running late” nudges and upcoming birthdays, anniversaries and holidays',
+      'Everything waiting for approval — leave, corrections, shift changes — in one bar',
     ],
   },
   {
@@ -361,7 +396,19 @@ const FEATURES = [
       'Earned leave carries forward (capped); Casual and Sick lapse; optional monthly limits',
       'Sundays and holidays inside a leave aren’t counted; half days count as 0.5',
       'Not enough balance? Use what’s left and take the rest as Loss of Pay',
+      'Apply up to 7 days back; days absent without leave count as Loss of Pay',
       'Record a voice note instead of typing; attach medical certificates to sick leave',
+    ],
+  },
+  {
+    shot: SHOTS.requests,
+    eyebrow: 'Requests',
+    title: 'Shift swaps, permissions and corrections — without WhatsApp chasing',
+    points: [
+      'Swap to another shift for a day; the late and half-day rules follow the new shift',
+      'Short permissions (e.g. 4–5:30 PM) with a monthly limit you set',
+      'Time corrections from the calendar log; admins approve, adjust or reject',
+      'Admins can also change someone’s shift for a day directly',
     ],
   },
   {
@@ -370,8 +417,20 @@ const FEATURES = [
     title: 'Team stats that point you to what matters',
     points: [
       'Attendance %, average hours and on-time rate per person and department',
+      'A day-by-day heatmap of the whole team and a “Who’s out” panel for the week',
       '“Worth a look” card for patterns like skipped breaks or very long days',
       'Six-month trends, sortable comparison table, one-click PDF',
+    ],
+  },
+  {
+    shot: SHOTS.hiring,
+    eyebrow: 'Hiring',
+    title: 'From candidate to offer letter to first day',
+    points: [
+      'Track candidates from applied to interview to offer, with résumés and notes',
+      'Fill in an offer letter, preview it and approve — a signed PDF is emailed from the app',
+      'The candidate accepts or declines online; you see when they opened it',
+      'Hire in one click: the employee, their onboarding checklist and the accepted offer are ready',
     ],
   },
   {
@@ -405,7 +464,7 @@ function Features() {
 // ── HR suite gallery ────────────────────────────────────────
 
 const GALLERY = [
-  SHOTS.hiring, SHOTS.profile, SHOTS.policy, SHOTS.approvals, SHOTS.corrections,
+  SHOTS.offer, SHOTS.profile, SHOTS.policy, SHOTS.approvals, SHOTS.myProfile, SHOTS.holidays,
   SHOTS.employees, SHOTS.shifts, SHOTS.calendar, SHOTS.stats, SHOTS.login,
 ]
 
@@ -561,7 +620,7 @@ function CtaBand({ title, text }: { title: string; text: string }) {
         </div>
         <div className="cta-band-actions">
           <a className="btn btn-white btn-lg" href={demoLink('admin')} {...demoTarget}><LogIn size={18} /> Try the live demo</a>
-          <a className="btn btn-on-dark btn-lg" href="#contact">Book a free walkthrough</a>
+          <a className="btn btn-on-dark btn-lg" href="#top">Book a free walkthrough</a>
         </div>
       </div>
     </section>

@@ -112,16 +112,21 @@ export type Shot = { file: string; title: string; caption: string }
 
 export const SHOTS = {
   login:           { file: 'login.png',             title: 'Login',               caption: 'Branded sign-in; employees choose their own password at first login.' },
-  dashboard:       { file: 'dashboard.png',         title: 'Employee dashboard',  caption: 'Check in, pause for a break, check out — today’s time and this month at a glance.' },
+  dashboard:       { file: 'dashboard.png',         title: 'Employee dashboard',  caption: 'A smart Check In bar, today’s shift, the last 6 days, a productivity score and the month as a calendar.' },
   selfie:          { file: 'checkin-selfie.png',    title: 'Selfie check-in',     caption: 'The camera opens at check-in; no gallery uploads.' },
   selfieReview:    { file: 'selfie-review.png',     title: 'Selfie review',       caption: 'The check-in selfie next to the profile photo, one click from the attendance list.' },
   security:        { file: 'checkin-security.png',  title: 'Check-in rules',      caption: 'Switch selfie and location checks on for everyone or per person; set an area for each office.' },
-  attendance:      { file: 'admin-attendance.png',  title: 'Daily attendance',    caption: 'Who’s in, late or on leave — with each check-in’s selfie and location.' },
+  attendance:      { file: 'admin-home.png',        title: 'Admin home',          caption: 'Who’s in, late, absent or on leave, a 7-day trend, running-late nudges and birthdays coming up.' },
+  location:        { file: 'admin-attendance.png',  title: 'Daily attendance',    caption: 'Every check-in with its selfie and location result.' },
+  requests:        { file: 'requests.png',          title: 'Requests',            caption: 'One-day shift changes, permissions and time corrections, approved in one place.' },
+  offer:           { file: 'offer-letter.png',      title: 'Offer letters',       caption: 'A PDF offer letter emailed from Hiring; the candidate accepts online.' },
+  myProfile:       { file: 'my-profile.png',        title: 'My Profile',          caption: 'Employees see their job details, documents and keep their contact details up to date.' },
+  holidays:        { file: 'holidays.png',          title: 'Holidays',            caption: 'The year’s holidays, the next one, optional holidays to pick and “Add to my calendar”.' },
   leave:           { file: 'leave.png',             title: 'Request leave',       caption: 'Live balances, half days, voice notes and sick-leave documents.' },
   stats:           { file: 'stats.png',             title: 'My Statistics',       caption: 'Punctuality, hours vs shift, leave and a 6-month trend — downloadable as PDF.' },
-  teamStats:       { file: 'team-stats.png',        title: 'Team Stats',          caption: 'Compare people and departments; “Worth a look” flags odd patterns.' },
-  profile:         { file: 'employee-profile.png',  title: 'Onboarding',          caption: 'A checklist for every new joiner, with their documents in one place.' },
-  hiring:          { file: 'hiring.png',            title: 'Hiring',              caption: 'Candidates from applied to offer; one click turns a hire into an employee.' },
+  teamStats:       { file: 'team-stats.png',        title: 'Team Stats',          caption: 'Compare people and departments, see who’s out this week; “Worth a look” flags odd patterns.' },
+  profile:         { file: 'employee-profile.png',  title: 'Onboarding',          caption: 'A checklist for every new joiner; HR verifies their documents or asks for a re-send.' },
+  hiring:          { file: 'hiring.png',            title: 'Hiring',              caption: 'Candidates from applied to interview to offer; one click turns a hire into an employee.' },
   policy:          { file: 'leave-policy.png',      title: 'Leave policy',        caption: 'Built from your real settings; employees confirm they’ve read each update.' },
   employees:       { file: 'employees.png',         title: 'Employees',           caption: 'Filters by department, status and location; deleted staff go to a bin.' },
   shifts:          { file: 'shifts.png',            title: 'Shifts',              caption: 'Each shift sets its own late, half-day and minimum-break rules.' },
@@ -137,8 +142,8 @@ export const SHOTS = {
 
 export const PHONE_SHOTS: Shot[] = [
   { file: 'phone-dashboard.png',  title: 'Check in',   caption: 'One tap from the phone.' },
+  { file: 'phone-log.png',        title: 'Month log',  caption: 'Every day, as a calendar.' },
   { file: 'phone-selfie.png',     title: 'Selfie',     caption: 'Proof it’s really them.' },
   { file: 'phone-leave.png',      title: 'Leave',      caption: 'Apply with a voice note.' },
-  { file: 'phone-stats.png',      title: 'Statistics', caption: 'Their month, clearly.' },
   { file: 'phone-admin.png',      title: 'Admin',      caption: 'Who’s in, at a glance.' },
 ]
