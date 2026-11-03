@@ -39,6 +39,34 @@
 
 .contact-form--hero .form-grid { gap: 12px; margin-bottom: 1rem; }
 .contact-form--hero input, .contact-form--hero select { min-height: 48px; background: #fbfdfa; }
+/* Dark green card so the lead form stands out from the light page */
+.hero-form {
+  background: var(--band);
+  border-color: transparent;
+  color: #e7f3e3;
+  box-shadow: 0 30px 70px -28px rgba(19, 63, 18, 0.7), 0 0 0 6px color-mix(in srgb, var(--btn-1) 14%, transparent);
+}
+.hero-form::before { background: linear-gradient(90deg, #8fdc6a, #c8f5a8, #8fdc6a); }
+.hero-form-head h2 { color: #fff; }
+.hero-form-head p { color: #cfe5c8; }
+.hero-form .hero-form-badge { background: rgba(255, 255, 255, 0.14); color: #e3f8d6; }
+.hero-form .form-grid label { color: #fff; }
+.hero-form .contact-form--hero input,
+.hero-form .contact-form--hero select,
+.hero-form .contact-form--hero textarea { background: #fff; border-color: transparent; }
+.hero-form .form-grid input:focus,
+.hero-form .form-grid select:focus,
+.hero-form .form-grid textarea:focus { outline: 3px solid #8fdc6a; border-color: transparent; }
+.hero-form .btn-primary {
+  background: linear-gradient(90deg, #a6e67f, #8fdc6a);
+  color: #10261a;
+  box-shadow: 0 12px 26px -12px rgba(0, 0, 0, 0.55);
+}
+.hero-form .form-note { color: #cfe5c8; }
+.hero-form .form-note a { color: #c8f5a8; }
+.hero-form .form-done, .hero-form .form-done h3 { color: #fff; }
+.hero-form .form-done p { color: #cfe5c8; }
+
 .btn-lg { min-height: 56px; font-size: 1.08rem; }
 .contact-form .btn-lg svg { transition: transform 0.15s; }
 .contact-form .btn-lg:hover svg { transform: translateX(3px); }
