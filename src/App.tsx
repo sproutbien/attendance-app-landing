@@ -218,7 +218,7 @@ const HIGHLIGHTS = [
   { icon: FileSignature,  title: 'Offer letters',         text: 'PDF offer letters emailed from the app; candidates accept online.' },
   { icon: Briefcase,      title: 'Onboarding',            text: 'Checklists, document uploads, HR verification and probation.' },
   { icon: ScrollText,     title: 'Leave policy',          text: 'Always up to date; employees confirm they’ve read it.' },
-  { icon: Cake,           title: 'Birthdays & anniversaries', text: 'The admin home shows who’s celebrating in the next 30 days.' },
+  { icon: Cake,           title: 'Birthdays & anniversaries', text: 'A wish from HR and a card the whole team signs, with photos — it pops up on the day.' },
   { icon: Users,          title: 'Employee records',      text: 'IDs, statuses, notice periods, managers, HR notes.' },
   { icon: KeyRound,       title: 'Secure logins',         text: 'Own password at first login; admins can reset any time.' },
   { icon: Bell,           title: 'WhatsApp alerts',       text: 'Admins hear about leave the moment it’s requested.' },
@@ -383,7 +383,7 @@ const FEATURES = [
     points: [
       'Present, late, absent and on leave — with names — the moment you log in',
       '“Right now”: who’s working, on a break or checked out, and the average check-in',
-      'A 7-day trend, gentle “running late” nudges and upcoming birthdays, anniversaries and holidays',
+      'A 7-day trend, gentle “running late” nudges and birthday reminders with a one-click wish',
       'Everything waiting for approval — leave, corrections, shift changes — in one bar',
     ],
   },
@@ -410,6 +410,18 @@ const FEATURES = [
       'Time corrections from the calendar log; admins approve, adjust or reject',
       'Admins can also change someone’s shift for a day directly',
     ],
+  },
+  {
+    shot: SHOTS.birthday,
+    eyebrow: 'Team spirit',
+    title: 'Birthdays and work anniversaries nobody forgets',
+    points: [
+      'HR is reminded 3 days ahead and writes a wish right from the admin home',
+      'Three days before, the team gets a card to sign — a message and a photo each',
+      'On the day, a pop-up with confetti greets them with every message; their “Thank you!” goes back to everyone who signed',
+      'Private by design: only the person and HR read the card, and only the day and month are ever shown',
+    ],
+    extra: <div className="security-mini"><BrowserShot shot={SHOTS.teamCard} /></div>,
   },
   {
     shot: SHOTS.teamStats,
@@ -464,7 +476,7 @@ function Features() {
 // ── HR suite gallery ────────────────────────────────────────
 
 const GALLERY = [
-  SHOTS.offer, SHOTS.profile, SHOTS.policy, SHOTS.approvals, SHOTS.myProfile, SHOTS.holidays,
+  SHOTS.offer, SHOTS.profile, SHOTS.wishes, SHOTS.policy, SHOTS.approvals, SHOTS.myProfile, SHOTS.holidays,
   SHOTS.employees, SHOTS.shifts, SHOTS.calendar, SHOTS.stats, SHOTS.login,
 ]
 
